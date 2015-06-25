@@ -26,5 +26,7 @@ _testmain.go
 # the entrypoint binary
 cassandra-docker/cassandra-docker
 
-# cassandra tarballs
+# installation tarballs
 apache-cassandra-*.tar.gz
+datastax-*.tar.gz
+opscenter-*.tar.gz

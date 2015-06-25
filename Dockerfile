@@ -11,9 +11,15 @@ RUN /bin/sh /install-ubuntu-packages.sh
 # dev passes, this will expect a tarball in the root of the repo
 # wget http://www.apache.dist/cassandra/2.1.4/apache-cassandra-2.1.4-bin.tar.gz
 COPY apache-cassandra-2.1.4-bin.tar.gz /
+COPY opscenter-5.1.2.tar.gz /
+COPY datastax-agent-5.1.2.tar.gz /
 
 COPY install-cassandra-tarball.sh /
 RUN /bin/sh /install-cassandra-tarball.sh
+COPY install-opscenter-tarball.sh /
+RUN /bin/sh /install-opscenter-tarball.sh
+COPY install-datastax-agent.sh /
+RUN /bin/sh /install-datastax-agent.sh
 
 # create a cassandra user:group & chown
 # Note: this UID/GID is hard-coded in main.go

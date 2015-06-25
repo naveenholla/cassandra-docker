@@ -15,23 +15,23 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-VERSION="2.1.4"
-SHA1="e7283e873403d2e9dac24531d58df21246e5cf3f"
-TARBALL="apache-cassandra-${VERSION}-bin.tar.gz"
-URL="http://www.apache.dist/cassandra/${VERSION}/${TARBALL}"
+VERSION="5.1.2"
+SHA1="f49e48637ac9105fefc36b79981c694f284acb64"
+TARBALL="opscenter-${VERSION}.tar.gz"
+URL="http://downloads.datastax.com/community/${TARBALL}"
 
 cd /
 
 set -e
 set -x
 
-# download the tarball from an Apache mirror
+# download the tarball from Datastax
 # verify the checksum
-# untar in /opt, cleanup, symlink to /opt/cassandra
+# untar in /opt, cleanup, symlink to /opt/opscenter
 
 echo "${SHA1} ${TARBALL}" > ${TARBALL}.sha1
 
-if [ ! -f ${TARBALL} ]; then
+if [ ! -f ${TARBALL} ]; then 
   curl -O -s ${URL}
 fi
 
@@ -41,6 +41,6 @@ tar -xzf ${TARBALL} -C /opt
 
 rm -f ${TARBALL} ${TARBALL}.sha1
 
-ln -s /opt/apache-cassandra-$VERSION /opt/cassandra
+ln -s /opt/opscenter-$VERSION /opt/opscenter
 
 rm -f $0
